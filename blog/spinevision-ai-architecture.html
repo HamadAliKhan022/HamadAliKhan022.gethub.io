@@ -174,11 +174,13 @@
                 <p>SpineVision AI represents a sophisticated intersection of computer vision, distributed systems, and
                     medical diagnostics. The primary objective of the system is to provide early-stage detection of
                     spinal diseases—specifically fractures and disc space narrowing—by analyzing digital X-ray images
-                    through a deep learning pipeline. Unlike generic AI projects, SpineVision AI was engineered with a
-                    production-first mindset, focusing on scalability, accuracy, and a seamless integration between
-                    high-computation ML services and a responsive user interface.</p>
+                    through a robust X-ray classification system. Unlike generic AI projects, SpineVision AI was
+                    engineered with a production-first mindset, focusing on a full-stack ML architecture, accuracy, and
+                    a seamless React Flask AI integration between high-computation ML services and a responsive
+                    platform.</p>
                 <p>This article provides an in-depth exploration of the engineering decisions, architectural patterns,
-                    and performance optimizations that govern the SpineVision AI platform.</p>
+                    and performance optimizations that govern the AI spine disease detection capabilities of the
+                    platform.</p>
             </section>
 
             <h2>I. The High-Level Architecture</h2>
@@ -217,7 +219,8 @@
             <p>Before an image is sent to the server, the frontend performs a light pre-processing pass. Using the
                 <code>Canvas API</code>, we handle orientation corrections and initial rescaling to ensure the data sent
                 across the wire is optimized for the ML model's input layer (typically 224x224 or 512x512). This reduces
-                unnecessary bandwidth consumption and speeds up the "Time to Result" metric.</p>
+                unnecessary bandwidth consumption and speeds up the "Time to Result" metric.
+            </p>
 
             <h3>State Management and Feedback</h3>
             <p>We implemented a robust state machine using <code>React Hooks</code> to manage the multi-step diagnostics
@@ -243,7 +246,8 @@
             <h2>IV. The Inference Layer: Deep Learning with Python & Flask</h2>
             <p>The technical core of SpineVision AI is the Python Inference Service. This service is built on
                 <code>Flask</code> for its lightweight nature and <code>TensorFlow</code> for the underlying neural
-                network operations.</p>
+                network operations.
+            </p>
 
             <h3>Model Selection: Why CNN and VGG16?</h3>
             <p>For the detection of disc space narrowing and fractures, we utilized a customized Convolutional Neural
@@ -280,7 +284,8 @@
             <p>The current architecture is designed to be horizontally scalable. As usage grows, we plan to move from a
                 single-instance Flask service to a GPU-accelerated <code>Kubernetes</code> cluster using
                 <code>Redis</code> for task queue management (Celery). This will allow us to handle an arbitrary number
-                of concurrent analyses by spinning up new inference workers on demand.</p>
+                of concurrent analyses by spinning up new inference workers on demand.
+            </p>
 
             <h3>Integrating Generative AI</h3>
             <p>We are currently exploring the integration of LLMs (via LangChain) to synthesize the AI's numerical
