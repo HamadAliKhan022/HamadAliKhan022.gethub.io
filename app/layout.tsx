@@ -8,7 +8,12 @@ import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = constructMetadata();
+export const metadata: Metadata = {
+  ...constructMetadata(),
+  verification: {
+    google: "KCVDaDYV-b2BbM4Y2wRLtkNxYAVVomDXXgfO2n7rgmo",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -17,10 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-ZJ5DF018DG" />
-      </head>
       <body className={`${inter.className} antialiased selection:bg-primary/30`}>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-ZJ5DF018DG" />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
