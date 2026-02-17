@@ -78,7 +78,7 @@
 </head>
 
 <body>
-    <nav class="navbar sticky">
+    <nav class="navbar solid">
         <div class="max-width">
             <div class="logo"><a href="index.html">Portfo<span>lio.</span></a></div>
             <ul class="menu">
@@ -116,11 +116,12 @@
 
     <script>
         $(document).ready(function () {
+            // Simplified script for blog page to maintain solid navbar
             $(window).scroll(function () {
                 if (this.scrollY > 20) {
                     $('.navbar').addClass("sticky");
                 } else {
-                    $('.navbar').removeClass("sticky");
+                    // For blog page, we keep it solid/visible
                 }
             });
         });

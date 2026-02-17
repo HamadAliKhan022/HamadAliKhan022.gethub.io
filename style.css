@@ -101,7 +101,8 @@ section .title::after {
     transition: all 0.3s ease;
 }
 
-.navbar.sticky {
+.navbar.sticky,
+.navbar.solid {
     padding: 15px 0;
     background: #3b82f6;
 }
