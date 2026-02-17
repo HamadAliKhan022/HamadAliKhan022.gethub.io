@@ -171,6 +171,7 @@
             </header>
 
             <section id="executive-summary">
+                <h2>Executive Summary</h2>
                 <p>SpineVision AI represents a sophisticated intersection of computer vision, distributed systems, and
                     medical diagnostics. The primary objective of the system is to provide early-stage detection of
                     spinal diseases—specifically fractures and disc space narrowing—by analyzing digital X-ray images
@@ -183,7 +184,7 @@
                     platform.</p>
             </section>
 
-            <h2>I. The High-Level Architecture</h2>
+            <h2>System Architecture Overview</h2>
             <p>The system follows a microservices-inspired decoupled architecture, utilizing a three-tier model to
                 separate concerns between presentation, orchestration, and specialized computation. This decoupling was
                 critical to ensure that the heavy resource requirements of the ML inference engine did not impact the
@@ -210,7 +211,7 @@
                     dicom/jpeg images.</li>
             </ul>
 
-            <h2>II. Frontend Implementation: Designing for Medical Precision</h2>
+            <h2>Frontend (React) Layer</h2>
             <p>In medical software, the frontend is not just a UI; it is a diagnostic assistant. The React-based
                 application utilizes a modular component architecture to ensure maintainability. One of the key
                 challenges was handling high-resolution medical images without degrading client-side performance.</p>
@@ -227,7 +228,7 @@
                 flow: Upload → Analyzing → Visualizing Results → Generating Report. By decoupling the UI state from the
                 raw API response, we achieved a "zero-jank" experience even during 3-5 second inference windows.</p>
 
-            <h2>III. The Orchestration Layer: Node.js API Gateway</h2>
+            <h2>Backend (Flask / Node) API</h2>
             <p>Positioned between the user and the AI, the Node.js backend serves as the brain of the system. We chose
                 Node.js for its non-blocking I/O model, which is ideal for an application that handles frequent
                 concurrent file uploads and asynchronous communication with downstream services.</p>
@@ -243,7 +244,7 @@
                 responsive even under high load, achieving a 99.9% uptime during peak simulation tests."
             </div>
 
-            <h2>IV. The Inference Layer: Deep Learning with Python & Flask</h2>
+            <h2>ML Model Integration</h2>
             <p>The technical core of SpineVision AI is the Python Inference Service. This service is built on
                 <code>Flask</code> for its lightweight nature and <code>TensorFlow</code> for the underlying neural
                 network operations.
@@ -266,7 +267,12 @@
                     robustness against varying X-ray angles.</li>
             </ol>
 
-            <h2>V. Engineering Challenges & Solutions</h2>
+            <h2>Database & Data Flow</h2>
+            <p>The data flow within SpineVision AI is meticulously orchestrated to ensure both security and efficiency.
+                X-ray metadata and patient diagnostic histories are persisted in MongoDB, while heavy binary image data
+                is processed through optimized streams.</p>
+
+            <h2>Challenges & Engineering Decisions</h2>
 
             <h3>High-Resolution Data Transfer</h3>
             <p><strong>Challenge:</strong> Transferring 10MB+ X-ray files between tiers introduced latency.</p>
@@ -280,7 +286,12 @@
                 reduced the model footprint and improved inference time by nearly 40% without compromising the Mean
                 Average Precision (mAP).</p>
 
-            <h2>VI. Future Improvements & Scalability</h2>
+            <h2>Performance Considerations</h2>
+            <p>In addition to algorithmic optimizations, we implemented several system-level improvements. This includes
+                edge caching for frontend assets and the use of Gzip compression for API payloads to minimize the
+                payload size during transport.</p>
+
+            <h2>Future Improvements</h2>
             <p>The current architecture is designed to be horizontally scalable. As usage grows, we plan to move from a
                 single-instance Flask service to a GPU-accelerated <code>Kubernetes</code> cluster using
                 <code>Redis</code> for task queue management (Celery). This will allow us to handle an arbitrary number
