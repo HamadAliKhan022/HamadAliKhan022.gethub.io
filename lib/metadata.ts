@@ -36,6 +36,9 @@ export function constructMetadata({
         },
         icons,
         metadataBase: new URL("https://hamadalikhan022.github.io/HamadAliKhan022.gethub.io/"),
+        verification: {
+            google: "KCVDaDYV-b2BbM4Y2wRLtkNxYAVVomDXXgfO2n7rgmo",
+        },
         ...(noIndex && {
             robots: {
                 index: false,
