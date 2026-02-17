@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hamadalikhan022.github.io/HamadAliKhan022.gethub.io/sitemap.xml
