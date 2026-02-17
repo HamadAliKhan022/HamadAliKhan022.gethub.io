@@ -192,13 +192,11 @@
                 latency of the user-facing API.</p>
 
             <div class="arch-diagram">
-                <div class="arch-block">React Frontend</div>
-                <div class="arrow">⬇ ⬆</div>
-                <div class="arch-block">Node.js API Gateway</div>
-                <div class="arrow">⬇ ⬆</div>
-                <div class="arch-block">Python/Flask ML Service</div>
-                <div class="arrow">⬇</div>
-                <div class="arch-block">CNN Model (TensorFlow)</div>
+                <img src="../assets/blog/system-architecture.png"
+                    alt="SpineVision AI System Architecture Diagram - Three-Tier React Node Flask Pipeline"
+                    style="max-width: 100%; border-radius: 8px;">
+                <p style="font-size: 14px; color: #666; margin-top: 10px;">Figure 1: High-level System Architecture
+                    showing the orchestration between React, Node.js, and Flask.</p>
             </div>
 
             <p>The core components include:</p>
@@ -220,9 +218,32 @@
             <h3>Client-side Image Processing</h3>
             <p>Before an image is sent to the server, the frontend performs a light pre-processing pass. Using the
                 <code>Canvas API</code>, we handle orientation corrections and initial rescaling to ensure the data sent
-                across the wire is optimized for the ML model's input layer (typically 224x224 or 512x512). This reduces
-                unnecessary bandwidth consumption and speeds up the "Time to Result" metric.
-            </p>
+                across the wire is optimized for the ML model's input layer (typically 224x224 or 512x512).</p>
+
+            <div class="code-block"
+                style="background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; margin: 30px 0; font-family: 'Courier New', Courier, monospace; overflow-x: auto;">
+                <pre>
+// Optimization: Client-side rescaling before upload
+const prepareImageForAI = (file) => {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 224; // Standard CNN input size
+        canvas.height = 224;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, 224, 224);
+        resolve(canvas.toDataURL('image/jpeg', 0.8));
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+};
+</pre>
+            </div>
 
             <h3>State Management and Feedback</h3>
             <p>We implemented a robust state machine using <code>React Hooks</code> to manage the multi-step diagnostics
@@ -234,11 +255,18 @@
                 Node.js for its non-blocking I/O model, which is ideal for an application that handles frequent
                 concurrent file uploads and asynchronous communication with downstream services.</p>
 
+            <div class="arch-diagram">
+                <img src="../assets/blog/data-flow.png"
+                    alt="SpineVision AI Data Flow Diagram - User Upload to AI Prediction Path"
+                    style="max-width: 100%; border-radius: 8px;">
+                <p style="font-size: 14px; color: #666; margin-top: 10px;">Figure 2: End-to-end data flow path for an
+                    X-ray image diagnostic request.</p>
+            </div>
+
             <h3>The Async Inference Pattern</h3>
             <p>Instead of a standard blocking request, the API Gateway implements an asynchronous pattern. When a user
                 uploads an X-ray, the Node.js server first validates the session, stores the image securely, and then
-                initiates a POST request to the Python inference service. This allows the Node server to continue
-                handling other requests while the ML engine performs intense linear algebra computations.</p>
+                initiates a POST request to the Python inference service.</p>
 
             <div class="highlight-box">
                 "By decoupling the inference engine from the main API thread, we ensured that the system remained
@@ -248,14 +276,33 @@
             <h2>ML Model Integration</h2>
             <p>The technical core of SpineVision AI is the Python Inference Service. This service is built on
                 <code>Flask</code> for its lightweight nature and <code>TensorFlow</code> for the underlying neural
-                network operations.
-            </p>
+                network operations.</p>
+
+            <div class="code-block"
+                style="background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; margin: 30px 0; font-family: 'Courier New', Courier, monospace; overflow-x: auto;">
+                <pre>
+# Inference Service: Image Normalization and Prediction
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json['image']
+    image = decode_base64_image(data)
+    
+    # Preprocessing pipeline
+    processed_img = preprocess_input(image)
+    processed_img = np.expand_dims(processed_img, axis=0)
+    
+    # Model inference
+    preds = model.predict(processed_img)
+    result = decode_predictions(preds)
+    
+    return jsonify({"status": "success", "prediction": result})
+</pre>
+            </div>
 
             <h3>Model Selection: Why CNN and VGG16?</h3>
             <p>For the detection of disc space narrowing and fractures, we utilized a customized Convolutional Neural
-                Network (CNN). We experimented with several architectures, including ResNet and Inception, but
-                ultimately settled on a modified <code>VGG16</code> base for transfer learning due to its superior
-                performance on grayscale radiographic imagery with limited training datasets.</p>
+                Network (CNN). We settled on a modified <code>VGG16</code> base for transfer learning due to its
+                superior performance on grayscale radiographic imagery.</p>
 
             <h3>Preprocessing Pipelines</h3>
             <p>The Flask service implements a strict preprocessing pipeline:</p>
@@ -263,9 +310,9 @@
                 <li><strong>Grayscale Normalization:</strong> Medical X-rays often vary in contrast. We apply Histogram
                     Equalization to normalize pixel intensity.</li>
                 <li><strong>Resizing & Padding:</strong> Images are resized to 224x224 while maintaining aspect ratio
-                    via padding to prevent geometric distortion of spinal structures.</li>
+                    via padding to prevent geometric distortion.</li>
                 <li><strong>Augmentation:</strong> During training, we applied rotation and zoom to increase model
-                    robustness against varying X-ray angles.</li>
+                    robustness.</li>
             </ol>
 
             <h2>Database & Data Flow</h2>
