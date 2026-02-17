@@ -1,47 +1,38 @@
----
-layout: default
-title: Hamad Ali Khan - Developer
----
+# Professional Software Developer Portfolio
 
-# Hello, my name is Hamad Ali Khan
-## I'm a Developer | Hire me
+**🌐 Live Website:** [hamadalikhan022.github.io](https://hamadalikhan022.github.io/HamadAliKhan022.gethub.io/)  
+**📂 Repository:** [GitHub Repo](https://github.com/HamadAliKhan022/HamadAliKhan022.gethub.io)
 
-I am a BS Computer Science student at Pak-Austria Fachhochschule Institute of Applied Sciences and Technology. My skills include:
-- HTML (90%)
-- CSS (60%)
-- WordPress (80%)
-- C++ (50%)
-- SQL (70%)
+Modern, high-impact technical portfolio optimized for recruiters and clients. Built with a focus on Full-Stack Development, AI, and Scalable Systems.
 
-### About Me
+## 🚀 Key Projects
+- **SpineVision AI**: Spine Disease Detection System (React, Node, Python/Flask, ML).
+- **Virtual Try-On**: Full-stack E-commerce system (Awarded "Best Performance").
+- **Research Assistant AI**: AI-powered paper analysis (Langflow, React).
+- **Web Development**: Diverse portfolio of managed and optimized sites.
 
-I am passionate about coding and technical problem-solving. With a strong foundation in computer science and hands-on experience in web development, I strive to create efficient and user-friendly solutions.
+## 🛠 Tech Stack
+- **Languages**: C++, Python, JavaScript, SQL
+- **Frontend**: React, HTML5, CSS3/Modern CSS
+- **Backend**: Node.js, Flask
+- **Tools**: Git, Linux, VS Code
+- **Specialties**: AI Integration, Full-Stack Systems, Database Design
 
-### Skills
+## 📈 Contribution Strategy & Future-Proofing
+To maintain a high level of activity and visibility on GitHub, this project is structured for frequent, logical updates:
+- **Feature Branches**: Add new projects as separate components to the `projects` section.
+- **Documentation Updates**: Regularly update README with new achievements or blog posts.
+- **UI Tweaks**: Periodic styling refinements to keep the design modern.
+- **Modular Components**: The codebase is designed to be easily extensible for new sections (e.g., Blog, Testimonials).
 
-- **Programming Languages:** C++, SQL
-- **Web Development:** HTML, CSS, WordPress
-- **Languages:** Pashto, Urdu, English (proficient), Hindi, Punjabi (basic)
+### Future Roadmap
+- [ ] Integration with a headless CMS for blog posts.
+- [ ] Adding detailed "Case Study" pages for major projects.
+- [ ] Implementing dark/light mode toggle.
+- [ ] Enhancing mobile animations with Framer Motion.
 
-### Experience
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-I have worked on various projects ranging from website development to database management. My academic background and practical skills enable me to deliver high-quality solutions tailored to meet diverse needs.
-
-### Get in Touch
-
-If you're interested in hiring me or have any questions, feel free to contact me.
-
-[Download CV](#) <!-- Replace with actual link -->
-
----
-
-**Recent Projects:**
-- Developed a custom WordPress theme for a client in the education sector.
-- Implemented data structures in C++ for optimizing algorithm performance.
-
----
-
-**Blog Posts:**
-- [Introduction to HTML5](#)
-- [CSS Tricks for Responsive Design](#)
-- [Getting Started with SQL](#)
+## 🤝 Connect
+[GitHub](https://github.com/HamadAliKhan022) | [LinkedIn](https://www.linkedin.com/main) | [Upwork](https://www.upwork.com/)
