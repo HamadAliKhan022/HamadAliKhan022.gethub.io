@@ -218,7 +218,8 @@
             <h3>Client-side Image Processing</h3>
             <p>Before an image is sent to the server, the frontend performs a light pre-processing pass. Using the
                 <code>Canvas API</code>, we handle orientation corrections and initial rescaling to ensure the data sent
-                across the wire is optimized for the ML model's input layer (typically 224x224 or 512x512).</p>
+                across the wire is optimized for the ML model's input layer (typically 224x224 or 512x512).
+            </p>
 
             <div class="code-block"
                 style="background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; margin: 30px 0; font-family: 'Courier New', Courier, monospace; overflow-x: auto;">
@@ -276,7 +277,8 @@ const prepareImageForAI = (file) => {
             <h2>ML Model Integration</h2>
             <p>The technical core of SpineVision AI is the Python Inference Service. This service is built on
                 <code>Flask</code> for its lightweight nature and <code>TensorFlow</code> for the underlying neural
-                network operations.</p>
+                network operations.
+            </p>
 
             <div class="code-block"
                 style="background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; margin: 30px 0; font-family: 'Courier New', Courier, monospace; overflow-x: auto;">
@@ -357,10 +359,14 @@ def predict():
                 modularity, asynchronous orchestration, and optimized inference pipelines, we have built a foundation
                 that can truly assist in the early detection of spinal pathologies.</p>
 
-            <p style="text-align: center; margin-top: 50px;">
-                <strong>Interested in more details?</strong><br>
-                Check out the project on <a href="https://github.com/HamadAliKhan022">GitHub</a> or contact me for a
-                technical breakdown.
+            <p style="text-align: center; margin-top: 50px; background: #f8fafc; padding: 30px; border-radius: 8px;">
+                <strong>Explore More</strong><br>
+                View my full range of <a href="../index.html#projects"
+                    style="color: #3b82f6; font-weight: 600;">Technical Projects</a> or return to the <a
+                    href="../index.html" style="color: #3b82f6; font-weight: 600;">Homepage</a>.<br>
+                Detailed source code for this architecture can be found on my <a
+                    href="https://github.com/HamadAliKhan022" style="color: #3b82f6; font-weight: 600;">GitHub
+                    Repository</a>.
             </p>
         </div>
     </article>
