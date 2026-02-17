@@ -1,38 +1,43 @@
-# Professional Software Developer Portfolio
+# Hamad Ali Khan | Portfolio
 
-**🌐 Live Website:** [hamadalikhan022.github.io](https://hamadalikhan022.github.io/HamadAliKhan022.gethub.io/)  
-**📂 Repository:** [GitHub Repo](https://github.com/HamadAliKhan022/HamadAliKhan022.gethub.io)
+A modern, high-performance personal portfolio built with **Next.js 16**, **Tailwind CSS**, and **Framer Motion**. This project showcases my work as a Software Developer & AI Advocate, featuring technical deep dives, interactive UI components, and a mobile-responsive design.
 
-Modern, high-impact technical portfolio optimized for recruiters and clients. Built with a focus on Full-Stack Development, AI, and Scalable Systems.
+## 🚀 Features
 
-## 🚀 Key Projects
-- **SpineVision AI**: Spine Disease Detection System (React, Node, Python/Flask, ML).
-- **Virtual Try-On**: Full-stack E-commerce system (Awarded "Best Performance").
-- **Research Assistant AI**: AI-powered paper analysis (Langflow, React).
-- **Web Development**: Diverse portfolio of managed and optimized sites.
+- **Next.js 16 (App Router)**: Leveraging the latest Next.js features for speed and SEO.
+- **Tailwind CSS 4**: Utilizing the latest iteration of Tailwind for styling.
+- **Framer Motion**: Smooth, high-performance animations throughout the site.
+- **Responsive Design**: Optimized for all screen sizes (Mobile, Tablet, Desktop).
+- **Technical Blog**: Project-based technical articles with high-contrast typography and SEO parity.
+- **Dark/Light Mode**: Seamless theme switching using `next-themes`.
+- **Shadcn UI**: Modern, accessible components.
 
-## 🛠 Tech Stack
-- **Languages**: C++, Python, JavaScript, SQL
-- **Frontend**: React, HTML5, CSS3/Modern CSS
-- **Backend**: Node.js, Flask
-- **Tools**: Git, Linux, VS Code
-- **Specialties**: AI Integration, Full-Stack Systems, Database Design
+## 🛠️ Tech Stack
 
-## 📈 Contribution Strategy & Future-Proofing
-To maintain a high level of activity and visibility on GitHub, this project is structured for frequent, logical updates:
-- **Feature Branches**: Add new projects as separate components to the `projects` section.
-- **Documentation Updates**: Regularly update README with new achievements or blog posts.
-- **UI Tweaks**: Periodic styling refinements to keep the design modern.
-- **Modular Components**: The codebase is designed to be easily extensible for new sections (e.g., Blog, Testimonials).
+- **Frontend**: Next.js (React 19), TypeScript
+- **Styling**: Tailwind CSS, Lucide Icons
+- **Animation**: Framer Motion
+- **Deployment**: GitHub Pages / Vercel
 
-### Future Roadmap
-- [ ] Integration with a headless CMS for blog posts.
-- [ ] Adding detailed "Case Study" pages for major projects.
-- [ ] Implementing dark/light mode toggle.
-- [ ] Enhancing mobile animations with Framer Motion.
+## 📦 Getting Started
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/HamadAliKhan022/HamadAliKhan022.gethub.io.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-## 🤝 Connect
-[GitHub](https://github.com/HamadAliKhan022) | [LinkedIn](https://www.linkedin.com/main) | [Upwork](https://www.upwork.com/)
+## 📝 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+Built with ❤️ by [Hamad Ali Khan](https://github.com/HamadAliKhan022)

@@ -88,7 +88,7 @@ const jsonLd = [
 
 export default function BlogPost() {
     return (
-        <article className="pt-32 pb-24 px-4 bg-background">
+        <article className="pt-32 pb-24 px-4 bg-background text-foreground">
             <JsonLd data={jsonLd} />
             <div className="max-width mx-auto max-w-4xl">
                 <Link href="/blog" className="inline-flex items-center text-primary font-semibold hover:underline mb-12">
@@ -110,7 +110,7 @@ export default function BlogPost() {
 
                 <TableOfContents items={tocItems} />
 
-                <div className="prose prose-zinc dark:prose-invert max-w-none prose-h2:text-3xl prose-h2:tracking-tight prose-h2:font-bold prose-h2:border-b prose-h2:pb-2 prose-h3:text-2xl prose-h3:font-bold prose-p:text-lg prose-p:leading-relaxed prose-li:text-lg">
+                <div className="prose dark:prose-invert max-w-none prose-h2:text-3xl prose-h2:tracking-tight prose-h2:font-bold prose-h2:border-b prose-h2:pb-2 prose-h3:text-2xl prose-h3:font-bold prose-p:text-lg prose-p:leading-relaxed prose-li:text-lg text-foreground font-medium">
                     <section id="executive-summary">
                         <h2>Executive Summary</h2>
                         <p>
@@ -127,7 +127,7 @@ export default function BlogPost() {
                             The system follows a microservices-inspired decoupled architecture, utilizing a three-tier model to separate concerns between presentation, orchestration, and specialized computation. This decoupling was critical to ensure that the heavy resource requirements of the ML inference engine did not impact the latency of the user-facing API.
                         </p>
 
-                        <div className="my-12 p-6 bg-muted/50 rounded-2xl border flex flex-col items-center">
+                        <div className="my-12 p-6 bg-card dark:bg-muted/50 rounded-2xl border flex flex-col items-center shadow-sm">
                             <Image
                                 src="/assets/blog/system-architecture.png"
                                 alt="SpineVision AI System Architecture Diagram"
@@ -135,7 +135,7 @@ export default function BlogPost() {
                                 height={500}
                                 className="rounded-xl shadow-lg border"
                             />
-                            <p className="text-sm text-muted-foreground mt-4 italic font-medium">Figure 1: High-level System Architecture showing the orchestration between React, Node.js, and Flask.</p>
+                            <p className="text-sm text-muted-foreground mt-4 italic font-semibold">Figure 1: High-level System Architecture showing the orchestration between React, Node.js, and Flask.</p>
                         </div>
 
                         <p>The core components include:</p>
@@ -183,7 +183,7 @@ const prepareImageForAI = (file) => {
                         <h2>Backend (Flask / Node) API</h2>
                         <p>Positioned between the user and the AI, the Node.js backend serves as the brain of the system. We chose Node.js for its non-blocking I/O model, which is ideal for an <strong>AI medical imaging system</strong> that handles frequent concurrent file uploads and asynchronous communication with downstream services.</p>
 
-                        <div className="my-12 p-6 bg-muted/50 rounded-2xl border flex flex-col items-center">
+                        <div className="my-12 p-6 bg-card dark:bg-muted/50 rounded-2xl border flex flex-col items-center shadow-sm">
                             <Image
                                 src="/assets/blog/data-flow.png"
                                 alt="SpineVision AI Data Flow Diagram"
@@ -191,13 +191,13 @@ const prepareImageForAI = (file) => {
                                 height={500}
                                 className="rounded-xl shadow-lg border"
                             />
-                            <p className="text-sm text-muted-foreground mt-4 italic font-medium">Figure 2: End-to-end data flow path for an X-ray image diagnostic request.</p>
+                            <p className="text-sm text-muted-foreground mt-4 italic font-semibold">Figure 2: End-to-end data flow path for an X-ray image diagnostic request.</p>
                         </div>
 
                         <h3>The Async Inference Pattern</h3>
                         <p>Instead of a standard blocking request, the API Gateway implements an asynchronous pattern. When a user uploads an X-ray, the Node.js server first validates the session, stores the image securely, and then initiates a POST request to the Python inference service.</p>
 
-                        <div className="border-l-4 border-primary pl-6 py-4 my-8 bg-primary/5 rounded-r-xl italic text-foreground font-medium">
+                        <div className="border-l-4 border-primary pl-6 py-4 my-8 bg-primary/5 rounded-r-xl italic text-foreground font-semibold">
                             &quot;By decoupling the inference engine from the main API thread, we ensured that the system remained responsive even under high load, achieving a 99.9% uptime during peak simulation tests.&quot;
                         </div>
                     </section>
@@ -284,9 +284,9 @@ def predict():
                     <FAQSection items={faqs} />
                 </div>
 
-                <div className="mt-24 p-8 bg-muted/50 rounded-2xl text-center border">
+                <div className="mt-24 p-8 bg-card dark:bg-muted/50 rounded-2xl text-center border shadow-sm">
                     <h4 className="text-2xl font-bold mb-4 tracking-tight leading-tight">Explore More Expertise</h4>
-                    <p className="text-muted-foreground mb-8 text-lg">
+                    <p className="text-muted-foreground dark:text-foreground mb-8 text-lg font-medium">
                         Dive into my full range of <Link href="/#projects" className="text-primary font-bold hover:underline">Technical Projects</Link> or return to the <Link href="/" className="text-primary font-bold hover:underline">Homepage</Link>.
                     </p>
                     <div className="flex justify-center gap-4">

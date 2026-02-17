@@ -15,7 +15,7 @@ export function FAQSection({ items }: { items: FAQItem[] }) {
                 {items.map((item, index) => (
                     <div key={index} className="space-y-3">
                         <h3 className="text-xl font-bold text-foreground">{item.question}</h3>
-                        <p className="text-muted-foreground leading-relaxed">{item.answer}</p>
+                        <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed font-medium">{item.answer}</p>
                     </div>
                 ))}
             </div>

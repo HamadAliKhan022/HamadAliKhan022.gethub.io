@@ -39,6 +39,7 @@ export function Skills() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        className="text-center md:text-left"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">Creative Skills & Expertise</h2>
                         <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
@@ -67,7 +68,7 @@ export function Skills() {
                                 <h3 className="font-bold text-lg tracking-tight">{group.title}</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {group.skills.map((skill) => (
-                                        <Badge key={skill} variant="secondary" className="hover:bg-primary/10 transition-colors py-1 px-3">
+                                        <Badge key={skill} variant="secondary" className="hover:bg-primary/10 transition-colors py-1 px-3 border bg-muted/50 dark:bg-muted text-foreground font-medium">
                                             {skill}
                                         </Badge>
                                     ))}

@@ -10,7 +10,7 @@ interface TOCItem {
 
 export function TableOfContents({ items }: { items: TOCItem[] }) {
     return (
-        <div className="bg-muted/50 border border-muted rounded-xl p-6 my-8">
+        <div className="bg-card dark:bg-muted/50 border border-muted rounded-xl p-6 my-8 shadow-sm">
             <h4 className="font-bold text-lg mb-4">Table of Contents</h4>
             <ul className="space-y-2">
                 {items.map((item) => (

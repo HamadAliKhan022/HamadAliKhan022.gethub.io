@@ -62,7 +62,7 @@ export function Projects() {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
                         >
-                            <Card className="h-full group hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md bg-muted/50 border-muted">
+                            <Card className="h-full group hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md bg-card dark:bg-muted/50 border-muted">
                                 <CardHeader>
                                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                                         <project.icon className="w-6 h-6" />

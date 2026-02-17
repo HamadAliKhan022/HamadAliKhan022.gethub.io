@@ -66,12 +66,12 @@ export function Contact() {
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="bg-background p-8 rounded-2xl border shadow-sm"
+                        className="bg-card p-6 md:p-8 rounded-2xl border shadow-sm"
                     >
                         <form action="mailto:hammadalikhan022@gmail.com" method="post" className="space-y-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium">Name</label>
+                                    <label className="text-sm font-semibold">Name</label>
                                     <Input placeholder="Your Name" name="Name" required />
                                 </div>
                                 <div className="space-y-2">

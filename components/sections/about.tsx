@@ -32,11 +32,11 @@ export function About() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8 relative inline-block">
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8 relative inline-block text-center md:text-left w-full md:w-auto">
                             About Me
-                            <span className="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full" />
+                            <span className="absolute -bottom-2 md:left-0 left-1/2 -translate-x-1/2 md:translate-x-0 w-12 h-1 bg-primary rounded-full" />
                         </h2>
-                        <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+                        <div className="space-y-6 text-muted-foreground text-lg leading-relaxed text-center md:text-left">
                             <p className="text-foreground font-semibold text-xl">
                                 Hamad Ali Khan — Software Developer & Problem Solver
                             </p>

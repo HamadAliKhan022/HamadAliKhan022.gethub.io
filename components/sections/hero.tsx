@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center pt-24 md:pt-20 overflow-hidden">
             {/* Subtle background element */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]" />
@@ -20,10 +20,10 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-xl md:text-2xl font-medium text-primary mb-4 tracking-tight">
+                        <h2 className="text-lg md:text-2xl font-medium text-primary mb-4 tracking-tight">
                             Hello, my name is
                         </h2>
-                        <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-none">
+                        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter mb-6 leading-[0.9]">
                             Hamad Ali Khan
                         </h1>
                     </motion.div>
@@ -32,7 +32,7 @@ export function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-lg md:text-2xl text-muted-foreground mb-10 leading-relaxed font-medium"
+                        className="text-base sm:text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed font-medium max-w-2xl"
                     >
                         Software Developer & AI Advocate. I build innovative systems that solve real-world problems through clean code and intelligent design.
                     </motion.p>

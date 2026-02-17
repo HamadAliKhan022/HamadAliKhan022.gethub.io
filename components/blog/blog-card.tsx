@@ -25,7 +25,7 @@ export function BlogCard({ title, description, date, readTime, category, image, 
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
         >
-            <Card className="h-full group overflow-hidden border-muted bg-background/50 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md">
+            <Card className="h-full group overflow-hidden border-muted bg-card dark:bg-background/50 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md">
                 <div className="relative aspect-[16/9] overflow-hidden">
                     <Image
                         src={image}
