@@ -351,6 +351,24 @@ def predict():
                 X-ray metadata and patient diagnostic histories are persisted in MongoDB, while heavy binary image data
                 is processed through optimized streams.</p>
 
+            <h3>Why MongoDB?</h3>
+            <p>We chose MongoDB for its schema flexibility and JSON-native document structure, which perfectly matches
+                the nested nature of medical reports and diagnostic metadata. The dynamic schema allows us to store
+                varying AI outputs—such as different fracture classifications or multi-level disc narrowing
+                scores—without complex migrations.</p>
+
+            <h3>Schema Structure & Indexing</h3>
+            <p>The core schema revolves around a <code>Diagnostics</code> collection. We utilize a compound index on
+                <code>{ patientId: 1, createdAt: -1 }</code> to ensure high-performance retrieval of historical reports
+                for comparative analysis. For read/write optimization, we implement a "Write-Once, Read-Many" pattern
+                for the diagnostic results, ensuring that once the AI has committed its findings, they are served from
+                optimized read-replicas in a larger-scale environment.</p>
+
+            <h3>Security Considerations</h3>
+            <p>Data at rest is encrypted using AES-256, and all database transactions occur within a VPC to ensure
+                HIPPA-compliant potential in future iterations. Field-level redaction is considered for PII (Personally
+                Identifiable Information) to separate clinical images from patient identity.</p>
+
             <h2>Challenges & Engineering Decisions</h2>
 
             <h3>High-Resolution Data Transfer</h3>
@@ -366,9 +384,23 @@ def predict():
                 Average Precision (mAP).</p>
 
             <h2>Performance Considerations</h2>
-            <p>In addition to algorithmic optimizations, we implemented several system-level improvements. This includes
-                edge caching for frontend assets and the use of Gzip compression for API payloads to minimize the
-                payload size during transport.</p>
+            <p>In addition to algorithmic optimizations, we implemented several system-level improvements targeting a
+                sub-500ms API response time for non-inference tasks.</p>
+
+            <h3>Frontend & Bundle Optimization</h3>
+            <p>To ensure a fast "First Contentful Paint" (FCP), we utilize <code>React.lazy</code> and
+                <code>Suspense</code> for route-based code splitting. This ensures that the heavy medical visualization
+                components are only loaded when needed, keeping the initial bundle under 200KB. Combined with Gzip
+                compression and edge caching via Cloudflare, we've optimized the delivery of the platform globally.</p>
+
+            <h3>Caching Strategies</h3>
+            <p>We implement a tiered caching strategy:
+            <ul>
+                <li><strong>Browser Cache:</strong> Static assets and UI elements.</li>
+                <li><strong>Redis Cache:</strong> Frequently accessed patient metadata and active session states to
+                    reduce MongoDB query load.</li>
+            </ul>
+            </p>
 
             <h2>Future Improvements</h2>
             <p>The current architecture is designed to be horizontally scalable. As usage grows, we plan to move from a
